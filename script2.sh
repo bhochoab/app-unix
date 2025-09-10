@@ -13,3 +13,4 @@ done
 UNUSED_VAR="Esto es para sonar"
 
 echo "script2.sh finalizado."
+ 
