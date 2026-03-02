@@ -1,15 +1,18 @@
-post {
-  always {
-    sh """
-    curl -X POST https://api.getport.io/v1/blueprints/service/entities/demo-service \
-      -H "Authorization: Bearer $PORT_TOKEN" \
-      -H "Content-Type: application/json" \
-      -d '{
-        "properties": {
-          "last_build_status": "${currentBuild.currentResult}",
-          "last_build_duration": ${currentBuild.duration}
-        }
-      }'
-    """
+pipeline {
+  agent any
+
+  stages {
+    stage('Build') {
+      steps {
+        echo 'Building...'
+        sleep 3
+      }
+    }
+  }
+
+  post {
+    always {
+      echo "Resultado: ${currentBuild.currentResult}"
+    }
   }
 }
